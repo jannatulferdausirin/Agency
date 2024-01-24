@@ -15,11 +15,11 @@ const Navbar = () => {
         <Flex className={`items-center justify-between pt-[56px] `}>
         <Image src={LogoImage } alt="logoImg" className={``}/>
            <Flex className={`gap-8 text-white`}>
-           <List text="Home" className={``}/>
-            <List text="About" />
-            <List text="Service" />
-            <List text="Carriers" />
-            <List text="Contacts" />
+           <List to="/home" text="Home" className={``}/>
+            <List to="/about" text="About" />
+            <List to="/service" text="Service" />
+            <List to="/carriers" text="Carriers" />
+            <List to="/contacts" text="Contacts" />
            </Flex>
                <Button text="Contact"/>
    

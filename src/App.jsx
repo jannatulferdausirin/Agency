@@ -1,30 +1,58 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
 
-import './App.css'
-import Banner from './components/layouts/Banner'
-import ChosseAgengy from './components/layouts/ChosseAgengy'
-import ClientReview from './components/layouts/ClientReview'
-import Development from './components/layouts/Development'
-import Footer from './components/layouts/Footer'
-import RecentWork from './components/layouts/RecentWork'
-import Services from './components/layouts/Services'
-import Success from './components/layouts/Success'
+import RootLayout from "./components/layouts/RootLayout";
+import Home from "./components/layouts/Home";
+import About from "./components/About";
+import Service from "./components/Service";
+import Carrier from "./components/Carrier";
+import Contact from "./components/Contact";
+import NotFound from "./NotFound";
 
 function App() {
- 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />
+        },
+          {
+            path: "/home",
+          element: <Home />,
+          },
+          {
+            path: "/about",
+          element: <About/>,
+          },
+          {
+            path: "/service",
+          element: <Service/>,
+          },
+          {
+            path: "/carriers",
+          element: <Carrier/>,
+          },
+          {
+            path: "/contacts",
+          element: <Contact/>,
+          },
+      
+      ],
+    },
+    {
+      path: "*",
+      element:<NotFound/>,
+    },
+  ]);
 
   return (
     <>
-     <Banner/>
-     <Success/>
-     <Services/>
-     <RecentWork/>
-     <ChosseAgengy/>
-     <ClientReview/>
-     <Development/>
-     <Footer/>
-       
+      <RouterProvider router={router}></RouterProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
